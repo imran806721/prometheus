@@ -1,0 +1,13 @@
+groups:
+- name: up
+  labels:
+    team: Monitoring
+  rules:
+  - alert: serverIsDown
+    expr: up !=1
+    for: 1m
+    keep_firing_for: 5m
+    labels:
+      severity: page
+    annotations:
+      summary: system Is Down
